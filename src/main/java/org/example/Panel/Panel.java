@@ -24,6 +24,7 @@ public class Panel implements PanelProvider {
     private void setJPanel() {
         jPanel.setSize(dimensionProvider.getWidth(), dimensionProvider.getHeight());
         jPanel.setBackground(Color.pink);
+        jPanel.setLayout(new GridLayout(4, 4));
         jPanel.setVisible(true);
     }
 
@@ -33,7 +34,10 @@ public class Panel implements PanelProvider {
     }
 
     private void addComponents() {
-        JButton[] button = panelComponentsProvider.addJPanelComponents();
-        jPanel.add(button[0]);
+        JButton[] buttons = panelComponentsProvider.addJPanelComponents();
+        for (int i = 0; i < buttons.length; i++) {
+            jPanel.add(buttons[i]);
+        }
+
     }
 }
