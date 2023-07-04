@@ -1,20 +1,20 @@
 package org.example.Frame;
 
-import org.example.Dimensions.DimensionProvider;
 import org.example.Panel.PanelProvider;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class Frame {
 
     private final JFrame jFrame;
-    private final DimensionProvider dimensionProvider;
+    private final Dimension dimension;
     private final PanelProvider panelProvider;
     private final FrameComponentsProvider frameComponentsProvider;
 
-    public Frame(DimensionProvider dimensionsProvider, FrameComponentsProvider frameComponentsProvider, PanelProvider panelProvider) {
+    public Frame(Dimension dimension, FrameComponentsProvider frameComponentsProvider, PanelProvider panelProvider) {
         this.jFrame = new JFrame();
-        this.dimensionProvider = dimensionsProvider;
+        this.dimension = dimension;
         this.panelProvider = panelProvider;
         this.frameComponentsProvider = frameComponentsProvider;
 
@@ -24,7 +24,7 @@ public class Frame {
 
     private void setJFrame() {
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        jFrame.setSize(dimensionProvider.getWidth(), dimensionProvider.getHeight());
+        jFrame.setSize((int) dimension.getWidth(), (int) dimension.getHeight());
         jFrame.setLocationRelativeTo(null);
         jFrame.setAlwaysOnTop(true);
         jFrame.setVisible(true);

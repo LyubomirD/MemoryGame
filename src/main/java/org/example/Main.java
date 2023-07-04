@@ -1,7 +1,5 @@
 package org.example;
 
-import org.example.Dimensions.DimensionProvider;
-import org.example.Dimensions.Dimensions;
 import org.example.Frame.Frame;
 import org.example.Frame.FrameComponents;
 import org.example.Frame.FrameComponentsProvider;
@@ -10,16 +8,18 @@ import org.example.Panel.PanelComponents;
 import org.example.Panel.PanelComponentsProvider;
 import org.example.Panel.PanelProvider;
 
+import java.awt.*;
+
 public class Main {
 
     public static void main(String[] args) {
-        DimensionProvider dimensions = new Dimensions(400, 400);
+        Dimension dimension = new Dimension(400, 500);
         FrameComponentsProvider componentsProvider = new FrameComponents();
 
         PanelComponentsProvider panelComponentsProvider = new PanelComponents();
-        PanelProvider panelProvider = new Panel(dimensions, panelComponentsProvider);
+        PanelProvider panelProvider = new Panel(dimension, panelComponentsProvider);
 
-        Frame frame = new Frame(dimensions, componentsProvider, panelProvider);
+        Frame frame = new Frame(dimension, componentsProvider, panelProvider);
         FrameComponentsProvider frameComponentsProvider = new FrameComponents();
         frameComponentsProvider.addJFrameComponents(panelProvider);
     }

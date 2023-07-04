@@ -1,43 +1,48 @@
 package org.example.Panel;
 
-import org.example.Dimensions.DimensionProvider;
-
 import javax.swing.*;
 import java.awt.*;
 
 public class Panel implements PanelProvider {
 
-    private final JPanel jPanel;
-    private final DimensionProvider dimensionProvider;
+    private final JPanel mainPanel;
+    private final JPanel gamePanel;
+    private final Dimension dimension;
     private final PanelComponentsProvider panelComponentsProvider;
 
-    public Panel(DimensionProvider dimensionProvider, PanelComponentsProvider panelComponentsProvider) {
-        this.jPanel = new JPanel();
-        this.dimensionProvider = dimensionProvider;
+    public Panel(Dimension dimension, PanelComponentsProvider panelComponentsProvider) {
+        this.mainPanel = new JPanel();
+        this.gamePanel = new JPanel();
+        this.dimension = dimension;
         this.panelComponentsProvider = panelComponentsProvider;
 
-        setJPanel();
-        addComponents();
+        setMainPanel();
+        setGamePanel();
     }
 
 
-    private void setJPanel() {
-        jPanel.setSize(dimensionProvider.getWidth(), dimensionProvider.getHeight());
-        jPanel.setBackground(Color.pink);
-        jPanel.setLayout(new GridLayout(4, 4));
-        jPanel.setVisible(true);
+    private void setMainPanel() {
+        mainPanel.setSize((int) dimension.getWidth(), (int) dimension.getHeight());
+        mainPanel.setBackground(Color.pink);
+        mainPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
+        mainPanel.setVisible(true);
+        mainPanel.add(gamePanel);
+        mainPanel.add(panelComponentsProvider.addJPanelRestartButton());
     }
 
     @Override
     public JPanel getJPanel() {
-        return jPanel;
+        return mainPanel;
     }
 
-    private void addComponents() {
-        JButton[] buttons = panelComponentsProvider.addJPanelComponents();
+    private void setGamePanel() {
+        //gamePanel.setSize((int) dimension.getWidth(), (int) dimension.getHeight() - 100);
+        gamePanel.setPreferredSize(new Dimension((int) dimension.getWidth(), (int) dimension.getHeight() - 100));
+        gamePanel.setLayout(new GridLayout(4, 4));
+        JButton[] buttons = panelComponentsProvider.addJPanelGameButtons();
         for (int i = 0; i < buttons.length; i++) {
-            jPanel.add(buttons[i]);
+            gamePanel.add(buttons[i]);
         }
-
     }
 }
+
