@@ -1,23 +1,25 @@
 package org.example;
 
-import org.example.GUI.Frame.Frame;
-import org.example.GUI.GetComponentsProvider;
+import org.example.GUI.Buttons.GameButtons;
+import org.example.GUI.Frame.FrameGame;
+import org.example.GUI.InterfaceGiveComponents.CombiningButtonAndLabel;
+import org.example.GUI.InterfaceGiveComponents.GetComponentsProvider;
+import org.example.GUI.Label.LabelGameLevelCounter;
 import org.example.GUI.Panel.Panel;
-import org.example.GUI.Panel.PanelComponents;
-import org.example.GUI.Panel.PanelProvider;
 
 import java.awt.*;
 
 public class Main {
 
     public static void main(String[] args) {
-        GetComponentsProvider componentsProvider;
         Dimension dimension = new Dimension(400, 500);
 
-        componentsProvider = new PanelComponents();
-        PanelProvider panelProvider = new Panel(dimension, componentsProvider);
+        GetComponentsProvider buttons = new GameButtons();
+        GetComponentsProvider label = new LabelGameLevelCounter();
+        GetComponentsProvider getComponentsProvider = new CombiningButtonAndLabel((GameButtons) buttons, (LabelGameLevelCounter) label);
+        GetComponentsProvider panel = new Panel(dimension, getComponentsProvider);
 
-        Frame frame = new Frame(dimension, panelProvider);
+        FrameGame frame = new FrameGame(dimension, panel);
     }
 }
 

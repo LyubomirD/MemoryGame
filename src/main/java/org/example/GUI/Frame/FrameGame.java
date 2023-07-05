@@ -1,21 +1,20 @@
 package org.example.GUI.Frame;
 
-import org.example.GUI.Panel.PanelProvider;
-import org.example.GUI.GetComponentsProvider;
+import org.example.GUI.InterfaceGiveComponents.GetComponentsProvider;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class Frame {
+public class FrameGame {
 
     private final JFrame jFrame;
     private final Dimension dimension;
-    private final PanelProvider panelProvider;
+    private final GetComponentsProvider getComponentsProvider;
 
-    public Frame(Dimension dimension, PanelProvider panelProvider) {
+    public FrameGame(Dimension dimension, GetComponentsProvider getComponentsProvider) {
         this.jFrame = new JFrame();
         this.dimension = dimension;
-        this.panelProvider = panelProvider;
+        this.getComponentsProvider = getComponentsProvider;
 
         setJFrame();
         addJFrameComponents();
@@ -30,7 +29,7 @@ public class Frame {
     }
 
     private void addJFrameComponents() {
-        jFrame.add(panelProvider.getJPanel());
+        jFrame.add(getComponentsProvider.getSingleComponent());
         jFrame.validate();
     }
 }

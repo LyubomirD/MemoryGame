@@ -5,22 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fa476661-eddf-4fa1-b002-a68c415f2767" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI/GetComponentsProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI/Label/LabelGameLevelCounter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI/Label/LabelLevelProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI/InterfaceGiveComponents/CombiningButtonAndLabel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Buttons/GameButtons.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI/Buttons/GameButtons.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Buttons/GameButtonsProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI/Buttons/GameButtonsProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Buttons/RestartButton.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Buttons/RestartButtonProvider.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Frame/Frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI/Frame/Frame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Frame/FrameComponents.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Frame/FrameComponentsProvider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GUI/Buttons/GameButtons.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI/Buttons/GameButtons.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GUI/Buttons/GameButtonsProvider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GUI/Frame/Frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI/Frame/FrameGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GUI/GetComponentsProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI/InterfaceGiveComponents/GetComponentsProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GUI/Label/LabelGameLevelCounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI/Label/LabelGameLevelCounter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GUI/Label/LabelLevelProvider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GUI/Panel/Panel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI/Panel/Panel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GUI/Panel/PanelComponents.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GUI/Panel/PanelProvider.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Panel/Panel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI/Panel/Panel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Panel/PanelComponents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI/Panel/PanelComponents.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Panel/PanelComponentsProvider.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Panel/PanelProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI/Panel/PanelProvider.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +72,7 @@
       <module name="MemoryGame" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.GUI.*" />
+          <option name="PATTERN" value="org.example.GUI.InterfaceGiveComponents.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>

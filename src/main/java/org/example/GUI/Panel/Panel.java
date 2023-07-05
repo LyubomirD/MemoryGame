@@ -1,11 +1,11 @@
 package org.example.GUI.Panel;
 
-import org.example.GUI.GetComponentsProvider;
+import org.example.GUI.InterfaceGiveComponents.GetComponentsProvider;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class Panel implements PanelProvider {
+public class Panel implements GetComponentsProvider {
 
     private final JPanel mainPanel;
     private final JPanel gamePanel;
@@ -31,13 +31,9 @@ public class Panel implements PanelProvider {
         addComponentsToMainPanel();
     }
 
-    @Override
-    public JPanel getJPanel() {
-        return mainPanel;
-    }
-
     private void addComponentsToMainPanel() {
         mainPanel.add(gamePanel);
+        addLabelToMainPanel();
     }
 
     private void setGamePanel() {
@@ -54,8 +50,19 @@ public class Panel implements PanelProvider {
         }
     }
 
-    private void addLabelLevelToMainPanel() {
+    private void addLabelToMainPanel() {
+        JLabel label = (JLabel) getComponentsProvider.getSingleComponent();
+        mainPanel.add(label);
+    }
 
+    @Override
+    public Component[] getMultipleComponents() {
+        return null;
+    }
+
+    @Override
+    public Component getSingleComponent() {
+        return mainPanel;
     }
 }
 

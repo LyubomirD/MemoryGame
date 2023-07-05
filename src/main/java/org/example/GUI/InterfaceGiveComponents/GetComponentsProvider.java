@@ -1,6 +1,4 @@
-package org.example.GUI;
-
-import org.example.GUI.Panel.PanelProvider;
+package org.example.GUI.InterfaceGiveComponents;
 
 import java.awt.*;
 
