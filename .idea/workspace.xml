@@ -4,21 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa476661-eddf-4fa1-b002-a68c415f2767" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Buttons/RestartButton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Buttons/RestartButtonProvider.java" afterDir="false" />
+    <list default="true" id="fa476661-eddf-4fa1-b002-a68c415f2767" name="Changes" comment="save3: Added Restart button, Gui is ready for logic">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/GameLogic/RestartButtonFunctionality.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Buttons/Buttons.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Buttons/GameButtons.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Buttons/ButtonsProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Buttons/GameButtonsProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Dimensions/DimensionProvider.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Dimensions/Dimensions.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Frame/Frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Frame/Frame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Frame/FrameComponents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Frame/FrameComponents.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Frame/FrameComponentsProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Frame/FrameComponentsProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Buttons/GameButtons.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI/Buttons/GameButtons.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Buttons/GameButtonsProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI/Buttons/GameButtonsProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Buttons/RestartButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI/Buttons/RestartButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Buttons/RestartButtonProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI/Buttons/RestartButtonProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Frame/Frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI/Frame/Frame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Frame/FrameComponents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI/Frame/FrameComponents.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Frame/FrameComponentsProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI/Frame/FrameComponentsProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Panel/Panel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Panel/Panel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Panel/PanelComponents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Panel/PanelComponents.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Panel/PanelComponentsProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Panel/PanelComponentsProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Panel/Panel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI/Panel/Panel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Panel/PanelComponents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI/Panel/PanelComponents.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Panel/PanelComponentsProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI/Panel/PanelComponentsProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Panel/PanelProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI/Panel/PanelProvider.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +34,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Lubo Dimoff &lt;lubodimoff@lubos-macbook-pro.local&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -94,11 +99,23 @@
       <option name="presentableId" value="Default" />
       <updated>1688419472383</updated>
       <workItem from="1688419476340" duration="4578000" />
-      <workItem from="1688460120091" duration="17342000" />
+      <workItem from="1688460120091" duration="26327000" />
     </task>
+    <task id="LOCAL-00001" summary="save3: Added Restart button, Gui is ready for logic">
+      <created>1688501407107</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1688501407108</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="save3: Added Restart button, Gui is ready for logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="save3: Added Restart button, Gui is ready for logic" />
   </component>
 </project>
