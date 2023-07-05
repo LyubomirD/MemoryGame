@@ -1,6 +1,7 @@
-package org.example.Frame;
+package org.example.GUI.Frame;
 
-import org.example.Panel.PanelProvider;
+import org.example.GUI.Panel.PanelProvider;
+import org.example.GUI.GetComponentsProvider;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,13 +11,11 @@ public class Frame {
     private final JFrame jFrame;
     private final Dimension dimension;
     private final PanelProvider panelProvider;
-    private final FrameComponentsProvider frameComponentsProvider;
 
-    public Frame(Dimension dimension, FrameComponentsProvider frameComponentsProvider, PanelProvider panelProvider) {
+    public Frame(Dimension dimension, PanelProvider panelProvider) {
         this.jFrame = new JFrame();
         this.dimension = dimension;
         this.panelProvider = panelProvider;
-        this.frameComponentsProvider = frameComponentsProvider;
 
         setJFrame();
         addJFrameComponents();
@@ -31,7 +30,7 @@ public class Frame {
     }
 
     private void addJFrameComponents() {
-        jFrame.add(frameComponentsProvider.addJFrameComponents(panelProvider));
+        jFrame.add(panelProvider.getJPanel());
         jFrame.validate();
     }
 }

@@ -1,27 +1,23 @@
 package org.example;
 
-import org.example.Frame.Frame;
-import org.example.Frame.FrameComponents;
-import org.example.Frame.FrameComponentsProvider;
-import org.example.Panel.Panel;
-import org.example.Panel.PanelComponents;
-import org.example.Panel.PanelComponentsProvider;
-import org.example.Panel.PanelProvider;
+import org.example.GUI.Frame.Frame;
+import org.example.GUI.GetComponentsProvider;
+import org.example.GUI.Panel.Panel;
+import org.example.GUI.Panel.PanelComponents;
+import org.example.GUI.Panel.PanelProvider;
 
 import java.awt.*;
 
 public class Main {
 
     public static void main(String[] args) {
+        GetComponentsProvider componentsProvider;
         Dimension dimension = new Dimension(400, 500);
-        FrameComponentsProvider componentsProvider = new FrameComponents();
 
-        PanelComponentsProvider panelComponentsProvider = new PanelComponents();
-        PanelProvider panelProvider = new Panel(dimension, panelComponentsProvider);
+        componentsProvider = new PanelComponents();
+        PanelProvider panelProvider = new Panel(dimension, componentsProvider);
 
-        Frame frame = new Frame(dimension, componentsProvider, panelProvider);
-        FrameComponentsProvider frameComponentsProvider = new FrameComponents();
-        frameComponentsProvider.addJFrameComponents(panelProvider);
+        Frame frame = new Frame(dimension, panelProvider);
     }
 }
 
