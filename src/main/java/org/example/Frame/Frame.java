@@ -1,6 +1,6 @@
-package org.example.GUI.Frame;
+package org.example.Frame;
 
-import org.example.GUI.Panel.PanelProvider;
+import org.example.Panel.PanelProvider;
 
 import javax.swing.*;
 import java.awt.*;
@@ -31,7 +31,7 @@ public class Frame {
     }
 
     private void addJFrameComponents() {
-        jFrame.add(frameComponentsProvider.addJFramePanelProvider(panelProvider));
+        jFrame.add(frameComponentsProvider.addJFrameComponents(panelProvider));
         jFrame.validate();
     }
 }

@@ -1,11 +1,12 @@
-package org.example.GUI.Panel;
+package org.example.Panel;
 
-import org.example.GUI.Buttons.GameButtons;
-import org.example.GUI.Buttons.GameButtonsProvider;
-import org.example.GUI.Buttons.RestartButton;
-import org.example.GUI.Buttons.RestartButtonProvider;
+import org.example.Buttons.GameButtons;
+import org.example.Buttons.GameButtonsProvider;
+import org.example.Buttons.RestartButton;
+import org.example.Buttons.RestartButtonProvider;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class PanelComponents implements PanelComponentsProvider {
 

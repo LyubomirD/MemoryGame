@@ -1,4 +1,4 @@
-package org.example.GUI.Buttons;
+package org.example.Buttons;
 
 import javax.swing.*;
 
