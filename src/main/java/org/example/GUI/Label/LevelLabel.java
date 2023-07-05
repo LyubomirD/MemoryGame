@@ -5,17 +5,19 @@ import org.example.GUI.InterfaceGiveComponents.GetComponentsProvider;
 import javax.swing.*;
 import java.awt.*;
 
-public class LabelGameLevelCounter implements GetComponentsProvider {
+public class LevelLabel implements GetComponentsProvider {
 
     private final JLabel jLabel;
 
-    public LabelGameLevelCounter() {
-        this.jLabel = new JLabel("Level 0");
+    public LevelLabel() {
+        this.jLabel = new JLabel();
 
         setJLabel();
     }
 
     private void setJLabel() {
+        jLabel.setText("Level 0");
+        jLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
     }
 
     @Override

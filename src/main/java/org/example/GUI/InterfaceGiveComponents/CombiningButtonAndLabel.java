@@ -1,24 +1,23 @@
 package org.example.GUI.InterfaceGiveComponents;
 
 import org.example.GUI.Buttons.GameButtons;
-import org.example.GUI.Label.LabelGameLevelCounter;
+import org.example.GUI.Label.LevelLabel;
 
-import javax.swing.*;
 import java.awt.*;
 
 public class CombiningButtonAndLabel implements GetComponentsProvider {
 
-    private final GameButtons buttons;
-    private final LabelGameLevelCounter label;
+    private final GameButtons gameButtons;
+    private final LevelLabel label;
 
-    public CombiningButtonAndLabel(GameButtons buttons, LabelGameLevelCounter label) {
-        this.buttons = buttons;
+    public CombiningButtonAndLabel(GameButtons gameButtons, LevelLabel label) {
+        this.gameButtons = gameButtons;
         this.label = label;
     }
 
     @Override
     public Component[] getMultipleComponents() {
-        return buttons.getMultipleComponents();
+        return gameButtons.getMultipleComponents();
     }
 
     @Override

@@ -11,10 +11,10 @@ public class GameButtons implements GetComponentsProvider{
     private final int NUMBER_OF_GAME_BUTTONS = 16;
 
     public GameButtons() {
-        setJButton();
+        setJButtons();
     }
 
-    private void setJButton() {
+    private void setJButtons() {
         this.buttons = new JButton[NUMBER_OF_GAME_BUTTONS];
 
         for (int i = 0; i < NUMBER_OF_GAME_BUTTONS; i++) {

@@ -5,19 +5,16 @@ import org.example.GUI.InterfaceGiveComponents.GetComponentsProvider;
 import javax.swing.*;
 import java.awt.*;
 
-public class FrameGame {
+public class Frame {
 
-    private final JFrame jFrame;
+    final JFrame jFrame;
     private final Dimension dimension;
-    private final GetComponentsProvider getComponentsProvider;
 
-    public FrameGame(Dimension dimension, GetComponentsProvider getComponentsProvider) {
+    public Frame(Dimension dimension) {
         this.jFrame = new JFrame();
         this.dimension = dimension;
-        this.getComponentsProvider = getComponentsProvider;
 
         setJFrame();
-        addJFrameComponents();
     }
 
     private void setJFrame() {
@@ -26,10 +23,5 @@ public class FrameGame {
         jFrame.setLocationRelativeTo(null);
         jFrame.setAlwaysOnTop(true);
         jFrame.setVisible(true);
-    }
-
-    private void addJFrameComponents() {
-        jFrame.add(getComponentsProvider.getSingleComponent());
-        jFrame.validate();
     }
 }
