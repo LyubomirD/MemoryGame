@@ -5,14 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fa476661-eddf-4fa1-b002-a68c415f2767" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI/Frame/FrameAddComponents.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI/Panel/PanelAddComponents.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI/InterfaceGiveComponents/GameButtonsProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI/InterfaceGiveComponents/LevelLabelProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI/InterfaceGiveComponents/PanelProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/GameFuctionality/GameButtonsFunctionality/ButtonsFunctionality.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GUI/Buttons/GameButtons.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI/Buttons/GameButtons.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GUI/Frame/FrameGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI/Frame/Frame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GUI/InterfaceGiveComponents/CombiningButtonAndLabel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI/InterfaceGiveComponents/CombiningButtonAndLabel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GUI/Label/LabelGameLevelCounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI/Label/LevelLabel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GUI/Panel/Panel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI/Panel/Panel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GUI/Frame/Frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI/Frame/Frame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GUI/Frame/FrameAddComponents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI/Frame/FrameAddComponents.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GUI/InterfaceGiveComponents/CombiningButtonAndLabel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GUI/InterfaceGiveComponents/GetComponentsProvider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GUI/Label/LevelLabel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI/Label/LevelLabel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GUI/Panel/PanelAddComponents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI/Panel/PanelAddComponents.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

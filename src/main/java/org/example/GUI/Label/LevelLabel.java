@@ -1,11 +1,11 @@
 package org.example.GUI.Label;
 
-import org.example.GUI.InterfaceGiveComponents.GetComponentsProvider;
+import org.example.GUI.InterfaceGiveComponents.LevelLabelProvider;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class LevelLabel implements GetComponentsProvider {
+public class LevelLabel implements LevelLabelProvider {
 
     private final JLabel jLabel;
 
@@ -21,12 +21,7 @@ public class LevelLabel implements GetComponentsProvider {
     }
 
     @Override
-    public Component[] getMultipleComponents() {
-        return null;
-    }
-
-    @Override
-    public Component getSingleComponent() {
+    public JLabel getLevelLabel() {
         return jLabel;
     }
 }

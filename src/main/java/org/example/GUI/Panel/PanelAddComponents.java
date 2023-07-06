@@ -1,18 +1,22 @@
 package org.example.GUI.Panel;
 
-import org.example.GUI.InterfaceGiveComponents.GetComponentsProvider;
+import org.example.GUI.InterfaceGiveComponents.GameButtonsProvider;
+import org.example.GUI.InterfaceGiveComponents.LevelLabelProvider;
+import org.example.GUI.InterfaceGiveComponents.PanelProvider;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class PanelAddComponents extends Panel implements GetComponentsProvider {
+public class PanelAddComponents extends Panel implements PanelProvider {
     private final JPanel gamePanel;
-    private final GetComponentsProvider getComponentsProvider;
+    private final GameButtonsProvider gameButtonsProvider;
+    private final LevelLabelProvider levelLabelProvider;
 
-    public PanelAddComponents(Dimension dimension, GetComponentsProvider getComponentsProvider) {
+    public PanelAddComponents(Dimension dimension, GameButtonsProvider gameButtonsProvider, LevelLabelProvider levelLabelProvider) {
         super(dimension);
         this.gamePanel = new JPanel();
-        this.getComponentsProvider = getComponentsProvider;
+        this.gameButtonsProvider = gameButtonsProvider;
+        this.levelLabelProvider = levelLabelProvider;
 
         addComponentsToMainPanel();
         setGamePanel();
@@ -20,6 +24,7 @@ public class PanelAddComponents extends Panel implements GetComponentsProvider {
 
     private void addComponentsToMainPanel() {
         mainPanel.add(gamePanel);
+        addStartButtonToMainPanel();
         addLabelToMainPanel();
     }
 
@@ -30,26 +35,26 @@ public class PanelAddComponents extends Panel implements GetComponentsProvider {
         addButtonsToGamePanel();
     }
 
+    private void addStartButtonToMainPanel() {
+        JButton startButton = gameButtonsProvider.getSingleButton();
+        mainPanel.add(startButton);
+    }
+
     private void addButtonsToGamePanel() {
-        JButton[] buttons = (JButton[]) getComponentsProvider.getMultipleComponents();
+        JButton[] buttons = gameButtonsProvider.getMultipleButtons();
         for (int i = 0; i < buttons.length; i++) {
             gamePanel.add(buttons[i]);
         }
     }
 
     private void addLabelToMainPanel() {
-        JLabel label = (JLabel) getComponentsProvider.getSingleComponent();
+        JLabel label = levelLabelProvider.getLevelLabel();
         mainPanel.add(label);
     }
 
-    @Override
-    public Component[] getMultipleComponents() {
-        return null;
-    }
 
     @Override
-    public Component getSingleComponent() {
+    public JPanel getJPanel() {
         return mainPanel;
     }
-
 }

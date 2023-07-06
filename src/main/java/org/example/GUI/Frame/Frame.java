@@ -1,6 +1,5 @@
 package org.example.GUI.Frame;
 
-import org.example.GUI.InterfaceGiveComponents.GetComponentsProvider;
 
 import javax.swing.*;
 import java.awt.*;

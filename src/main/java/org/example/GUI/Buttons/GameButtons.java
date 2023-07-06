@@ -1,35 +1,44 @@
 package org.example.GUI.Buttons;
 
-import org.example.GUI.InterfaceGiveComponents.GetComponentsProvider;
+import org.example.GUI.InterfaceGiveComponents.GameButtonsProvider;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class GameButtons implements GetComponentsProvider{
+public class GameButtons implements GameButtonsProvider {
 
-    private JButton[] buttons;
+    private final JButton[] gameButtons;
+    private final JButton startButton;
     private final int NUMBER_OF_GAME_BUTTONS = 16;
 
     public GameButtons() {
-        setJButtons();
+        this.startButton = new JButton();
+        this.gameButtons = new JButton[NUMBER_OF_GAME_BUTTONS];
+
+        setMultipleButtons();
+        setStartButton();
     }
 
-    private void setJButtons() {
-        this.buttons = new JButton[NUMBER_OF_GAME_BUTTONS];
-
+    private void setMultipleButtons() {
         for (int i = 0; i < NUMBER_OF_GAME_BUTTONS; i++) {
             JButton jButton = new JButton();
-            buttons[i] = jButton;
+            gameButtons[i] = jButton;
         }
     }
 
+    private void setStartButton() {
+        startButton.setText("Start Game");
+        startButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+    }
+
+
     @Override
-    public Component[] getMultipleComponents() {
-        return buttons;
+    public JButton[] getMultipleButtons() {
+        return gameButtons;
     }
 
     @Override
-    public Component getSingleComponent() {
-        return null;
+    public JButton getSingleButton() {
+        return startButton;
     }
 }
