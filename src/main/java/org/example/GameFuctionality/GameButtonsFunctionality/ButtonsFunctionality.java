@@ -1,12 +1,8 @@
 package org.example.GameFuctionality.GameButtonsFunctionality;
 
-import org.example.GUI.Buttons.GameButtons;
 import org.example.GUI.InterfaceGiveComponents.GameButtonsProvider;
-import org.w3c.dom.ls.LSOutput;
 
 import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.border.LineBorder;
 import javax.swing.plaf.basic.BasicButtonUI;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -19,6 +15,7 @@ public class ButtonsFunctionality implements ActionListener {
     private final GameButtonsProvider gameButtonsProvider;
     private final JButton[] buttonsArray;
     private final JButton startButton;
+    private int incrementingAppearingButtons = 2;
 
     public ButtonsFunctionality(GameButtonsProvider gameButtonsProvider) {
         this.gameButtonsProvider = gameButtonsProvider;
@@ -61,11 +58,9 @@ public class ButtonsFunctionality implements ActionListener {
         return new Color(red, green, blue);
     }
 
-
     @Override
     public void actionPerformed(ActionEvent e) {
         startButton.setEnabled(false);
-        int buttonCount = 2;
         Color defaultColor = Color.WHITE;
 
         List<JButton> buttonsList = new ArrayList<>(Arrays.asList(buttonsArray));
@@ -74,28 +69,26 @@ public class ButtonsFunctionality implements ActionListener {
         new Thread(() -> {
             List<JButton> coloredButtons = new ArrayList<>();
 
-            for (int i = 0; i < buttonCount; i++) {
+            for (int i = 0; i < incrementingAppearingButtons; i++) {
+
                 JButton currentButton = buttonsList.get(i);
 
                 int finalI = i;
                 SwingUtilities.invokeLater(() -> {
-                    // Reset the color of the previous button to the default color
                     if (finalI > 0) {
                         JButton previousButton = buttonsList.get(finalI - 1);
                         previousButton.setBackground(defaultColor);
                         fillInButtonsWithColor(previousButton);
                     }
 
-                    // Color the current button
                     currentButton.setBackground(randomColorGenerator());
                     fillInButtonsWithColor(currentButton);
 
-                    // Add the colored button to the list
                     coloredButtons.add(currentButton);
                 });
 
                 try {
-                    Thread.sleep(1000); // Pause for 1 second after coloring each button
+                    Thread.sleep(1002 - incrementingAppearingButtons);
                 } catch (InterruptedException ex) {
                     ex.printStackTrace();
                 }
@@ -105,49 +98,47 @@ public class ButtonsFunctionality implements ActionListener {
                     fillInButtonsWithColor(currentButton);
                 });
             }
-
             SwingUtilities.invokeLater(() -> {
-                UserInput(coloredButtons, buttonCount); // Call UserInput method after coloring the buttons
+                UserInput(coloredButtons);
             });
         }).start();
     }
-    private void UserInput(List<JButton> coloredButtons, int buttonCount) {
+    private void UserInput(List<JButton> coloredButtons) {
         ActionListener userInputListener = new ActionListener() {
-            int inputCount = 0; // Keep track of the number of user inputs
+            int inputCount = 0;
 
             @Override
             public void actionPerformed(ActionEvent e) {
                 JButton clickedButton = (JButton) e.getSource();
-                System.out.println(clickedButton);
 
-                // Check if the coloredButtons list is empty
                 if (!coloredButtons.isEmpty()) {
-                    // Get the corresponding button from the colored buttons list
                     JButton coloredButton = coloredButtons.get(inputCount);
-                    // Check if the clicked button matches the corresponding colored button
                     boolean match = clickedButton.equals(coloredButton);
-
-                    // Increment the input count
                     inputCount++;
 
-                    // Check if all inputs have been made
-                    if (inputCount == buttonCount) {
-                        if (match) {
+                    if (match) {
+                        if (inputCount == incrementingAppearingButtons) {
+                            startButton.setText("Start Game");
+                            incrementingAppearingButtons++;
                             startButton.setEnabled(true);
-                        } else {
-                            startButton.setEnabled(false);
+                            inputCount = 0;
+                            coloredButtons.clear();
                         }
-                        inputCount = 0; // Reset the input count for the next round
-                        coloredButtons.clear(); // Clear the coloredButtons list for the next round
+                    } else {
+                        startButton.setText("Restart");
+                        incrementingAppearingButtons = 2;
+                        startButton.setEnabled(true);
+                        inputCount = 0;
+                        coloredButtons.clear();
                     }
                     System.out.println(match);
                 }
             }
         };
 
-        // Add the userInputListener to each button
         for (JButton button : buttonsArray) {
             button.addActionListener(userInputListener);
         }
     }
+
 }
