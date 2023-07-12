@@ -7,13 +7,15 @@ import org.example.GUI.InterfaceGiveComponents.PanelProvider;
 import javax.swing.*;
 import java.awt.*;
 
-public class PanelAddComponents extends Panel implements PanelProvider {
+public class PanelAddComponents implements PanelProvider {
+
+    private final Panel panel;
     private final JPanel gamePanel;
     private final GameButtonsProvider gameButtonsProvider;
     private final LevelLabelProvider levelLabelProvider;
 
-    public PanelAddComponents(Dimension dimension, GameButtonsProvider gameButtonsProvider, LevelLabelProvider levelLabelProvider) {
-        super(dimension);
+    public PanelAddComponents(Panel panel, GameButtonsProvider gameButtonsProvider, LevelLabelProvider levelLabelProvider) {
+        this.panel = panel;
         this.gamePanel = new JPanel();
         this.gameButtonsProvider = gameButtonsProvider;
         this.levelLabelProvider = levelLabelProvider;
@@ -22,14 +24,15 @@ public class PanelAddComponents extends Panel implements PanelProvider {
         setGamePanel();
     }
 
+
     private void addComponentsToMainPanel() {
-        mainPanel.add(gamePanel);
+        panel.mainPanel.add(gamePanel);
         addStartButtonToMainPanel();
         addLabelToMainPanel();
     }
 
     private void setGamePanel() {
-        gamePanel.setPreferredSize(dimension);
+        gamePanel.setPreferredSize(panel.dimension);
         gamePanel.setLayout(new GridLayout(4, 4));
 
         addButtonsToGamePanel();
@@ -37,24 +40,24 @@ public class PanelAddComponents extends Panel implements PanelProvider {
 
     private void addStartButtonToMainPanel() {
         JButton startButton = gameButtonsProvider.getSingleButton();
-        mainPanel.add(startButton);
+        panel.mainPanel.add(startButton);
     }
 
     private void addButtonsToGamePanel() {
         JButton[] buttons = gameButtonsProvider.getMultipleButtons();
-        for (int i = 0; i < buttons.length; i++) {
-            gamePanel.add(buttons[i]);
+        for (JButton button : buttons) {
+            gamePanel.add(button);
         }
     }
 
     private void addLabelToMainPanel() {
         JLabel label = levelLabelProvider.getLevelLabel();
-        mainPanel.add(label);
+        panel.mainPanel.add(label);
     }
 
 
     @Override
     public JPanel getJPanel() {
-        return mainPanel;
+        return panel.mainPanel;
     }
 }

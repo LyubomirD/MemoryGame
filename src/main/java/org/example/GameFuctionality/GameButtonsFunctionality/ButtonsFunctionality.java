@@ -12,11 +12,10 @@ import java.util.*;
 import java.util.List;
 
 public class ButtonsFunctionality implements ActionListener {
-
-    private JLabel levelLabel;
+    private final JLabel levelLabel;
     private final JButton[] buttonsArray;
     private final JButton startButton;
-    private int incrementingAppearingButtons = 2;
+    private int incrementAppearingButtons = 2;
 
     public ButtonsFunctionality(GameButtonsProvider gameButtonsProvider, LevelLabelProvider levelLabelProvider) {
         this.levelLabel = levelLabelProvider.getLevelLabel();
@@ -30,6 +29,14 @@ public class ButtonsFunctionality implements ActionListener {
         }
 
         startButton.addActionListener(this);
+    }
+
+    private Color randomColorGenerator() {
+        Random random = new Random();
+        int red = random.nextInt(256);
+        int green = random.nextInt(256);
+        int blue = random.nextInt(256);
+        return new Color(red, green, blue);
     }
 
     private void fillInButtonsWithColor(JButton button) {
@@ -51,14 +58,6 @@ public class ButtonsFunctionality implements ActionListener {
         });
     }
 
-    private Color randomColorGenerator() {
-        Random random = new Random();
-        int red = random.nextInt(256);
-        int green = random.nextInt(256);
-        int blue = random.nextInt(256);
-        return new Color(red, green, blue);
-    }
-
     @Override
     public void actionPerformed(ActionEvent e) {
         startButton.setEnabled(false);
@@ -70,33 +69,13 @@ public class ButtonsFunctionality implements ActionListener {
         new Thread(() -> {
             List<JButton> coloredButtons = new ArrayList<>();
 
-            for (int i = 0; i < incrementingAppearingButtons; i++) {
-
-                JButton currentButton = buttonsList.get(i);
+            for (int i = 0; i < incrementAppearingButtons; i++) {
+                performButtonUpdate(buttonsList, coloredButtons, defaultColor, i);
+                performDelay();
 
                 int finalI = i;
                 SwingUtilities.invokeLater(() -> {
-                    if (finalI > 0) {
-                        JButton previousButton = buttonsList.get(finalI - 1);
-                        previousButton.setBackground(defaultColor);
-                        fillInButtonsWithColor(previousButton);
-                    }
-
-                    currentButton.setBackground(randomColorGenerator());
-                    fillInButtonsWithColor(currentButton);
-
-                    coloredButtons.add(currentButton);
-                });
-
-                try {
-                    Thread.sleep(1002 - incrementingAppearingButtons);
-                } catch (InterruptedException ex) {
-                    ex.printStackTrace();
-                }
-
-                SwingUtilities.invokeLater(() -> {
-                    currentButton.setBackground(defaultColor);
-                    fillInButtonsWithColor(currentButton);
+                    restoreButtonColor(defaultColor, buttonsList, finalI);
                 });
             }
             SwingUtilities.invokeLater(() -> {
@@ -104,6 +83,38 @@ public class ButtonsFunctionality implements ActionListener {
             });
         }).start();
     }
+
+    private void performButtonUpdate(List<JButton> buttonsList, List<JButton> coloredButtons, Color defaultColor, int index) {
+        JButton currentButton = buttonsList.get(index);
+
+        SwingUtilities.invokeLater(() -> {
+            if (index > 0) {
+                JButton previousButton = buttonsList.get(index - 1);
+                previousButton.setBackground(defaultColor);
+                fillInButtonsWithColor(previousButton);
+            }
+
+            currentButton.setBackground(randomColorGenerator());
+            fillInButtonsWithColor(currentButton);
+
+            coloredButtons.add(currentButton);
+        });
+    }
+
+    private void performDelay() {
+        try {
+            Thread.sleep(1002 - incrementAppearingButtons);
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    private void restoreButtonColor(Color defaultColor, List<JButton> buttonsList, int index) {
+        JButton currentButton = buttonsList.get(index);
+        currentButton.setBackground(defaultColor);
+        fillInButtonsWithColor(currentButton);
+    }
+
     private void UserInput(List<JButton> coloredButtons) {
         ActionListener userInputListener = new ActionListener() {
             int inputCount = 0;
@@ -112,32 +123,30 @@ public class ButtonsFunctionality implements ActionListener {
             public void actionPerformed(ActionEvent e) {
                 JButton clickedButton = (JButton) e.getSource();
 
-                if (!coloredButtons.isEmpty()) {
-                    JButton coloredButton = coloredButtons.get(inputCount);
-                    boolean match = clickedButton.equals(coloredButton);
-                    inputCount++;
-
-                    if (match) {
-                        if (inputCount == incrementingAppearingButtons) {
-                            levelLabel.setText("Level " + incrementingAppearingButtons);
-
-                            startButton.setText("Start");
-                            incrementingAppearingButtons++;
-                            startButton.setEnabled(true);
-                            inputCount = 0;
-                            coloredButtons.clear();
-                        }
-                    } else {
-                        levelLabel.setText("Level 1");
-
-                        startButton.setText("Restart");
-                        incrementingAppearingButtons = 2;
-                        startButton.setEnabled(true);
-                        inputCount = 0;
-                        coloredButtons.clear();
-                    }
-                    System.out.println(match);
+                if (coloredButtons.isEmpty()) {
+                    return;
                 }
+
+                JButton coloredButton = coloredButtons.get(inputCount);
+                boolean match = clickedButton.equals(coloredButton);
+                inputCount++;
+
+                if (match && inputCount == incrementAppearingButtons) {
+                    levelLabel.setText("Level " + incrementAppearingButtons);
+                    startButton.setText("Start");
+                    incrementAppearingButtons++;
+                    inputCount = 0;
+                    coloredButtons.clear();
+                    startButton.setEnabled(true);
+                } else if (!match) {
+                    levelLabel.setText("Level 1");
+                    startButton.setText("Restart");
+                    incrementAppearingButtons = 2;
+                    inputCount = 0;
+                    coloredButtons.clear();
+                    startButton.setEnabled(true);
+                }
+                System.out.println(match);
             }
         };
 
