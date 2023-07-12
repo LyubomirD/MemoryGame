@@ -1,6 +1,7 @@
 package org.example.GameFuctionality.GameButtonsFunctionality;
 
 import org.example.GUI.InterfaceGiveComponents.GameButtonsProvider;
+import org.example.GUI.InterfaceGiveComponents.LevelLabelProvider;
 
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicButtonUI;
@@ -12,20 +13,20 @@ import java.util.List;
 
 public class ButtonsFunctionality implements ActionListener {
 
-    private final GameButtonsProvider gameButtonsProvider;
+    private JLabel levelLabel;
     private final JButton[] buttonsArray;
     private final JButton startButton;
     private int incrementingAppearingButtons = 2;
 
-    public ButtonsFunctionality(GameButtonsProvider gameButtonsProvider) {
-        this.gameButtonsProvider = gameButtonsProvider;
+    public ButtonsFunctionality(GameButtonsProvider gameButtonsProvider, LevelLabelProvider levelLabelProvider) {
+        this.levelLabel = levelLabelProvider.getLevelLabel();
 
         this.buttonsArray = gameButtonsProvider.getMultipleButtons();
         this.startButton = gameButtonsProvider.getSingleButton();
 
-        for (int i = 0; i < buttonsArray.length; i++) {
-            buttonsArray[i].setBackground(Color.WHITE);
-            fillInButtonsWithColor(buttonsArray[i]);
+        for (JButton jButton : buttonsArray) {
+            jButton.setBackground(Color.WHITE);
+            fillInButtonsWithColor(jButton);
         }
 
         startButton.addActionListener(this);
@@ -118,13 +119,17 @@ public class ButtonsFunctionality implements ActionListener {
 
                     if (match) {
                         if (inputCount == incrementingAppearingButtons) {
-                            startButton.setText("Start Game");
+                            levelLabel.setText("Level " + incrementingAppearingButtons);
+
+                            startButton.setText("Start");
                             incrementingAppearingButtons++;
                             startButton.setEnabled(true);
                             inputCount = 0;
                             coloredButtons.clear();
                         }
                     } else {
+                        levelLabel.setText("Level 1");
+
                         startButton.setText("Restart");
                         incrementingAppearingButtons = 2;
                         startButton.setEnabled(true);

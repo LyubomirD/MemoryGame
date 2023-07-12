@@ -7,13 +7,12 @@ import org.example.GUI.InterfaceGiveComponents.GameButtonsProvider;
 import org.example.GUI.InterfaceGiveComponents.LevelLabelProvider;
 import org.example.GUI.InterfaceGiveComponents.PanelProvider;
 import org.example.GUI.Label.LevelLabel;
-import org.example.GUI.Panel.Panel;
 import org.example.GUI.Panel.PanelAddComponents;
 import org.example.GameFuctionality.GameButtonsFunctionality.ButtonsFunctionality;
 
 import java.awt.*;
 
-public class Main {
+public class MemoryGame {
 
     public static void main(String[] args) {
         //GUI
@@ -24,9 +23,10 @@ public class Main {
 
         PanelProvider panel = new PanelAddComponents(dimension, buttons, label);
         Frame frame = new FrameAddComponents(dimension, panel);
-        // /GUI
 
         //Functions
-        ButtonsFunctionality buttonsFunctionality = new ButtonsFunctionality((GameButtons) buttons);
+        ButtonsFunctionality buttonsFunctionality = new ButtonsFunctionality(buttons, label);
+
+
     }
 }

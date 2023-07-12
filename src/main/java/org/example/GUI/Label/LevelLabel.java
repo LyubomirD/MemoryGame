@@ -16,7 +16,7 @@ public class LevelLabel implements LevelLabelProvider {
     }
 
     private void setJLabel() {
-        jLabel.setText("Level 0");
+        jLabel.setText("Level 1");
         jLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
     }
 
